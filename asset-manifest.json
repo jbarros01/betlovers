@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/betlovers/static/css/main.5a80345f.chunk.css",
-    "main.js": "/betlovers/static/js/main.d31e326d.chunk.js",
-    "main.js.map": "/betlovers/static/js/main.d31e326d.chunk.js.map",
+    "main.js": "/betlovers/static/js/main.29d6cb78.chunk.js",
+    "main.js.map": "/betlovers/static/js/main.29d6cb78.chunk.js.map",
     "runtime-main.js": "/betlovers/static/js/runtime-main.67ac2ee1.js",
     "runtime-main.js.map": "/betlovers/static/js/runtime-main.67ac2ee1.js.map",
     "static/js/2.ab9ad5fb.chunk.js": "/betlovers/static/js/2.ab9ad5fb.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.67ac2ee1.js",
     "static/js/2.ab9ad5fb.chunk.js",
     "static/css/main.5a80345f.chunk.css",
-    "static/js/main.d31e326d.chunk.js"
+    "static/js/main.29d6cb78.chunk.js"
   ]
 }
