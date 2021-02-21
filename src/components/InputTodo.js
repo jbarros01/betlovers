@@ -1,7 +1,12 @@
 import React, { useState } from "react"
+import { useDispatch } from 'react-redux';
 import { FaPlusCircle } from "react-icons/fa";
+import { searchGames } from "../store/actions/games";
 
 const InputTodo = (props) => {
+
+  const dispatch = useDispatch();
+  
   const [inputText, setInputText] = useState({
     title: "",
   })
@@ -35,7 +40,7 @@ const InputTodo = (props) => {
         name="title"
         onChange={onChange}
       />
-      <button className="input-submit">
+      <button onClick={() => dispatch(searchGames())} className="input-submit">
         <FaPlusCircle style={{ color: "darkcyan", fontSize: "20px", marginTop: "2px" }}/>
       </button>
     </form>
