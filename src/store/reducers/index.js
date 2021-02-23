@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { combineReducers } from "redux";
-import games from "./games";
+import teams from "./teams.reducer";
 
 export default {
-  entities: combineReducers({ games })
+  entities: combineReducers({ teams })
 };

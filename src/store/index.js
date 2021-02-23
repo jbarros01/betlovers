@@ -1,6 +1,8 @@
-import { createStore, combineReducers, compose } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import createSagaMiddleware from 'redux-saga'
 
 import reducers from "./reducers";
+import rootSaga from './saga';
 
 /**
  * Create redux store instance with reducers and middlewares
@@ -8,13 +10,21 @@ import reducers from "./reducers";
  * @returns {Object} Redux Store instance
  */
 const configureStore = initialState => {
-  const composeEnhancers = compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      trace: true
+    })
+
+  const sagaMiddleware = createSagaMiddleware()
+
+  const store = createStore(
+    combineReducers(reducers),
+    initialState,
+    composeEnhancers(applyMiddleware(sagaMiddleware))
   );
 
-  const store = createStore(combineReducers(reducers), initialState, composeEnhancers);
-
-  // init saga
+  sagaMiddleware.run(rootSaga)
 
   return store;
 }

@@ -2,7 +2,7 @@ import React from "react"
 
 import { Route, Switch } from "react-router-dom"
 
-import Homepage from "./Homepage"
+import Homepage from "../pages/Homepage"
 import NotMatch from "../pages/NotMatch"
 import Navbar from "./Navbar";
 
