@@ -1,5 +1,5 @@
 import React from "react"
-import { HOMEPAGE } from "../utils/Constants"
+import { HOMEPAGE } from "../utils/constants"
 
 const Header = () => {
 

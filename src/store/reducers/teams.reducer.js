@@ -3,7 +3,11 @@
 import {
   SEARCH_TEAM,
   SEARCH_TEAM_SUCCESS,
-  SEARCH_TEAM_FAILED
+  SEARCH_TEAM_FAILED,
+  FETCH_TEAM,
+  FETCH_TEAM_SUCCESS,
+  FETCH_TEAM_FAILED,
+  CLEAR_FILTERED_TEAMS
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -21,10 +25,12 @@ export default function(state = initialState, action) {
       };
     }
     case SEARCH_TEAM_SUCCESS: {
-      debugger;
       return {
         ...state,
-        filteredTeams: [ ...action.payload.filteredTeams ],
+        filteredTeams: [
+          ...state.filteredTeams,
+          ...action.payload.filteredTeams
+        ],
         isSearching: false
       };
     }
@@ -35,6 +41,33 @@ export default function(state = initialState, action) {
         isSearching: false
       };
     }
+    case FETCH_TEAM: {
+      return {
+        ...state,
+        isFetching: true
+      };
+    }
+    case FETCH_TEAM_SUCCESS: {
+      return {
+        ...state,
+        filteredTeams: [ ...state.filteredTeams, action.payload.team ],
+        isFetching: false
+      };
+    }
+    case FETCH_TEAM_FAILED: {
+      return {
+        ...state,
+        error: action.payload.error,
+        isFetching: false
+      };
+    }
+    case CLEAR_FILTERED_TEAMS: {
+      return {
+        ...state,
+        filteredTeams: initialState.filteredTeams
+      };
+    }
+
     default:
       return state;
   }
@@ -42,3 +75,5 @@ export default function(state = initialState, action) {
 
 export const getTeams = state => state.entities.teams;
 export const getFilteredTeams = state => getTeams(state).filteredTeams;
+export const getTeam = (state, teamId) =>
+  getFilteredTeams(state).find(team => team.team_id === Number(teamId));

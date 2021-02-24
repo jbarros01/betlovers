@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { func } from 'prop-types';
 import { FaPlusCircle } from "react-icons/fa";
-import { HOMEPAGE } from "../utils/Constants"
+import { HOMEPAGE } from "../utils/constants"
 
 const SearchTeamInput = ({ onSearch }) => {
 

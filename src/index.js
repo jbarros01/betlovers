@@ -6,7 +6,7 @@ import configureStore from './store'
 
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RootContainer from "./components/RootContainer"
+import Root from "./pages/Root"
 
 import "./App.css"
 
@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router basename={process.env.PUBLIC_URL}>
-        <RootContainer />
+        <Root />
       </Router>
     </Provider>
   </React.StrictMode>,

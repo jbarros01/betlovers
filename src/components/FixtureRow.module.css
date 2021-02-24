@@ -22,8 +22,13 @@
   margin: -10px 0 0 10px;
 }
 
-.item a {
-  padding: 0px;
+.item img {
+  width: 30px;
+  vertical-align: bottom;
+}
+
+.item label {
+  padding: 0px 10px 0px 10px;
 }
 
 .textInput {

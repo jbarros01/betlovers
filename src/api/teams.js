@@ -12,5 +12,15 @@ export default client => {
     }
   };
 
-  return { searchTeam };
+  const getTeam = async teamId => {
+    try {
+      const { data: { api: { teams }} }  = await client.get(`${path}/team/${teamId}`)
+
+      return teams[0];
+    } catch (e) {
+      return e;
+    }
+  };
+
+  return { searchTeam, getTeam };
 };
