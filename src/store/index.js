@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { compose, createStore, combineReducers, applyMiddleware } from "redux";
 import createSagaMiddleware from 'redux-saga'
 
 import reducers from "./reducers";
@@ -10,11 +10,15 @@ import rootSaga from './saga';
  * @returns {Object} Redux Store instance
  */
 const configureStore = initialState => {
+  const isDevelopment = process.env.REACT_APP_NODE_ENV === 'development';
+
   const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      trace: true
-    })
+    (isDevelopment &&
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        trace: true
+      })) ||
+    compose;
 
   const sagaMiddleware = createSagaMiddleware()
 
