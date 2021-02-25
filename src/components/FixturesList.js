@@ -1,15 +1,16 @@
 import React from "react"
-import { array } from 'prop-types';
+import { array, number } from 'prop-types';
 
 import FixtureRow from "./FixtureRow";
 
-const FixturesList = ({ fixtures }) => {
+const FixturesList = ({ fixtures, teamId }) => {
   return (
     <ul>
       {fixtures.map(fixture => (
         <FixtureRow
           key={fixture.fixture_id}
           fixture={fixture}
+          teamId={teamId}
         />
       ))}
     </ul>
@@ -17,11 +18,13 @@ const FixturesList = ({ fixtures }) => {
 }
 
 FixturesList.defaultProps = {
-  fixtures: []
+  fixtures: [],
+  teamId: null
 }
 
 FixturesList.propTypes = {
-  fixtures: array
+  fixtures: array,
+  teamId: number
 };
 
 export default FixturesList

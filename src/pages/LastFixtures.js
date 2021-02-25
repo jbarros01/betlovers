@@ -18,6 +18,8 @@ const LastFixtures = () => {
 
   const { teamId, quantity } = useParams();
 
+  const teamIdNumber = Number(teamId);
+
   const lastFixtures = useSelector(state =>
     getTeamLastFixtures(state, teamId)
   );
@@ -36,7 +38,7 @@ const LastFixtures = () => {
     <div className="container">
       <div className="inner">
         {hasLastFixtures ? (
-          <FixturesList fixtures={lastFixtures} />
+          <FixturesList fixtures={lastFixtures} teamId={teamIdNumber} />
         ) : NO_INFO_AVAILABLE
         }
       </div>
