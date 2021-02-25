@@ -7,9 +7,9 @@ import {
   FETCH_TEAM_NEXT_FIXTURES_FAILED
 } from "./actionTypes";
 
-export const fetchTeamLastFixtures = teamId => ({
+export const fetchTeamLastFixtures = (teamId, quantity) => ({
   type: FETCH_TEAM_LAST_FIXTURES,
-  payload: { teamId }
+  payload: { teamId, quantity }
 });
 
 export const fetchTeamLastFixturesSuccess = (teamId, lastTeamFixtures) => ({
@@ -22,9 +22,9 @@ export const fetchTeamLastFixturesFailed = error => ({
   payload: { error }
 });
 
-export const fetchTeamNextFixtures = teamId => ({
+export const fetchTeamNextFixtures = (teamId, quantity) => ({
   type: FETCH_TEAM_NEXT_FIXTURES,
-  payload: { teamId }
+  payload: { teamId, quantity }
 });
 
 export const fetchTeamNextFixturesSuccess = (teamId, nextTeamFixtures) => ({
