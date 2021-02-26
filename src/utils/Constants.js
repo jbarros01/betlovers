@@ -1,14 +1,17 @@
 import * as Routes from "./routes"
 
 export const HOMEPAGE = {
-  SEARCH_HEADER_TITLE: "SEARCH YOUR TEAM",
-  WRITE_ITEM_MESSAGE: "Please write item"
+  HEADER_TITLE: "betlovers.",
+  WRITE_ITEM_MESSAGE: "Please write item",
+  SEARCH_PLACEHOLDER: "Search your team..."
 }
 
 export const FIXTURES = {
   NOT_STARTED: "Not Started",
   MATCH_FINISHED: "Match Finished",
-  SEPARATOR: "-"
+  MATCH_CANCELLED: "Match Cancelled",
+  SEPARATOR: "-",
+  CANCELLED_SEPARATOR: "CANC"
 }
 
 export const TEAM_INFO = (teamId) => [

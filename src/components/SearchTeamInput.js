@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { func } from 'prop-types';
-import { FaPlusCircle } from "react-icons/fa";
+import { FaArrowRight, FaSearch } from "react-icons/fa";
 import { HOMEPAGE } from "../utils/constants"
 
 const SearchTeamInput = ({ onSearch }) => {
@@ -14,27 +14,30 @@ const SearchTeamInput = ({ onSearch }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if(inputText.trim()) {
+    if (inputText.trim()) {
       onSearch(inputText);
 
       setInputText('')
     } else {
       alert(HOMEPAGE.WRITE_ITEM_MESSAGE)
-    } 
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
+      <span className="input-search">
+        <FaSearch />
+      </span>
       <input
         type="text"
         className="input-text"
-        placeholder="Add todo..."
+        placeholder={HOMEPAGE.SEARCH_PLACEHOLDER}
         value={inputText}
         name="team"
         onChange={onChange}
       />
       <button className="input-submit">
-        <FaPlusCircle style={{ color: "darkcyan", fontSize: "20px", marginTop: "2px" }}/>
+        <FaArrowRight />
       </button>
     </form>
   )

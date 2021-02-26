@@ -9,7 +9,7 @@
 }
 
 .fixture:hover {
-  background-color: aliceblue;
+  background-color: lavender;
   cursor: pointer;
 }
 
@@ -70,6 +70,10 @@
 
 .fixtureLabel {
   text-align: center;
+}
+
+.timeElapsed {
+  margin-left: 5px;
 }
 
 .timeElapsed img {

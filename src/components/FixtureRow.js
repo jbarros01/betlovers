@@ -119,6 +119,22 @@ const FixtureRow = ({ fixture, teamId }) => {
     </>
   )
 
+  const getMatchCancelled = () => (
+    <>
+      <div className={styles.homeTeamName}>{homeTeamName}</div>
+      <div className={styles.homeTeamLogo}>
+        <img src={homeTeamLogo} alt='homeTeamLogo' />
+      </div>
+      <div className={styles.cancelledLabel}>
+        {FIXTURES.CANCELLED_SEPARATOR}
+      </div>
+      <div className={styles.awayTeamLogo}>
+        <img src={awayTeamLogo} alt='awayTeamLogo' />
+      </div>
+      <div className={styles.awayTeamName}>{awayTeamName}</div>
+    </>
+  )
+
   const renderFixture = () => {
     if (status === FIXTURES.NOT_STARTED) {
       return getNotStartedMatch();
@@ -126,6 +142,10 @@ const FixtureRow = ({ fixture, teamId }) => {
 
     if (status === FIXTURES.MATCH_FINISHED) {
       return getMatchFinished();
+    }
+
+    if (status === FIXTURES.MATCH_CANCELLED) {
+      return getMatchCancelled();
     }
 
     return getOnGoingMatch();

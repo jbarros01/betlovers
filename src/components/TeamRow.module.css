@@ -5,29 +5,35 @@
   border-bottom: 1px solid #eaeaea;
 }
 
-.checkbox {
-  margin-right: 15px;
+.item {
+  padding: 0px!important;
+  color: #444;
+  line-height: 2rem;
+  font-weight: 500;
 }
 
-.item button {
-  font-size: 13px;
-  background: #f1f3f4;
-  border: none;
+.item .teamLogo {
+  flex: 1;
+  width: 20px;
+}
+
+.item .teamLogo img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.item .teamName {
+  flex: 10;;
+}
+
+.item li {
+  padding: 10px 40px;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.item:hover, .item label:hover {
+  background-color: lavender;
   cursor: pointer;
-  float: right;
-  outline: none;
-  border-radius: 100px;
-  height: 50px;
-  width: 50px;
-  margin: -10px 0 0 10px;
-}
-
-.item a {
-  padding: 0px;
-}
-
-.textInput {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #dfdfdf;
 }
