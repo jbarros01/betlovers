@@ -25,14 +25,14 @@ const Homepage = () => {
         .trim()
         .toLowerCase()
         .replaceAll(' ', '_')
-  
+
     dispatch(clearFilteredTeams());
     dispatch(searchTeam(nameInLowercaseWithUnderscores));
   };
 
   return (
     <div className="container">
-      <div className="inner">
+      <div className="inner-homepage">
         <SearchTeamHeader />
         <SearchTeamInput onSearch={handleOnSearch} />
         <FilteredTeamsList teams={filteredTeams} />

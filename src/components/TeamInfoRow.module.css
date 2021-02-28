@@ -1,15 +1,15 @@
 .item {
   font-size: 1.2rem;
   list-style-type: none;
-  padding: 17px 0px;
   border-bottom: 1px solid #eaeaea;
-}
-
-.item {
   padding: 0px!important;
   color: #444;
   line-height: 2rem;
   font-weight: 500;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: none;
 }
 
 .item li {
