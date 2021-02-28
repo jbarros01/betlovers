@@ -30,5 +30,19 @@ export default client => {
     }
   };
 
-  return { getTeamLastFixtures, getTeamNextFixtures };
+  const getLiveFixtures = async () => {
+    try {
+      const {
+        data: {
+          api: { fixtures }
+        }
+      } = await client.get(`${path}/live`)
+
+      return fixtures;
+    } catch (e) {
+      return e;
+    }
+  };
+
+  return { getTeamLastFixtures, getTeamNextFixtures, getLiveFixtures };
 };

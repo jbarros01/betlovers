@@ -24,7 +24,7 @@ body {
 
 .inner-homepage {
   width: 100%;
-  padding: 8rem 20px 4rem;
+  padding: 4rem 20px 4rem;
 }
 
 .inner {
@@ -128,4 +128,20 @@ input:-webkit-autofill:active {
 
 .loadMore button:focus {
   outline: none;
+}
+
+.liveHeader {
+  font-size: 1rem;
+  list-style-type: none;
+  padding: 17px 25px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.liveHeader img {
+  width: 25px;
+  margin-left: 5px;
 }

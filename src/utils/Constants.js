@@ -5,7 +5,9 @@ export const LOGO = "betlovers."
 export const HOMEPAGE = {
   HEADER_TITLE: "FOR THE PASSIONATES.",
   WRITE_ITEM_MESSAGE: "Please write item",
-  SEARCH_PLACEHOLDER: "Search your team..."
+  SEARCH_PLACEHOLDER: "Search your team...",
+  CLEAR_SEARCH: "Clear search",
+  LIVE_GAMES: "LIVE GAMES"
 }
 
 export const FIXTURES = {
@@ -52,11 +54,15 @@ export const LINKS = [
     header: "Fixtures",
     options: [
       {
-        label: "Last Matches",
+        label: "Live Games",
         route: "#"
       },
       {
-        label: "Next Matches",
+        label: "Last Games",
+        route: "#"
+      },
+      {
+        label: "Next Games",
         route: "#"
       },
       {

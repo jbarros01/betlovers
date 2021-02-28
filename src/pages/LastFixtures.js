@@ -20,8 +20,6 @@ const LastFixtures = () => {
 
   const { teamId } = useParams();
 
-  const teamIdNumber = Number(teamId);
-
   const lastFixtures = useSelector(state =>
     getTeamLastFixtures(state, teamId)
   );
@@ -35,9 +33,7 @@ const LastFixtures = () => {
       dispatch(fetchTeamLastFixtures(teamId, numberOfFixturesToShow))
     }
 
-    return () => {
-      setNumberOfFixturesToShow(10);
-    }
+    return () => setNumberOfFixturesToShow(10);
   }, [teamId])
 
   const handleLoadMore = () => {
@@ -53,7 +49,7 @@ const LastFixtures = () => {
       <div className="inner">
         {hasLastFixtures ? (
           <>
-            <FixturesList fixtures={lastFixtures} teamId={teamIdNumber} />
+            <FixturesList fixtures={lastFixtures} />
             <div className="loadMore">
               <button onClick={handleLoadMore}>
                 {"Load more..."}

@@ -20,8 +20,6 @@ const NextFixtures = () => {
 
   const { teamId } = useParams();
 
-  const teamIdNumber = Number(teamId);
-
   const nextFixtures = useSelector(state =>
     getTeamNextFixtures(state, teamId)
   );
@@ -35,9 +33,7 @@ const NextFixtures = () => {
       dispatch(fetchTeamNextFixtures(teamId, numberOfFixturesToShow))
     }
 
-    return () => {
-      setNumberOfFixturesToShow(10);
-    }
+    return () => setNumberOfFixturesToShow(10);
   }, [teamId])
 
   const handleLoadMore = () => {
@@ -53,7 +49,7 @@ const NextFixtures = () => {
       <div className="inner">
         {hasNextFixtures ? (
           <>
-            <FixturesList fixtures={nextFixtures} teamId={teamIdNumber} />
+            <FixturesList fixtures={nextFixtures} />
             <div className="loadMore">
               <button onClick={handleLoadMore}>
                 {"Load more..."}

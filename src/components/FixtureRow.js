@@ -1,12 +1,12 @@
 import React from "react"
-import { object, number } from 'prop-types'
+import { object } from 'prop-types'
 import { Link } from "react-router-dom"
 
 import styles from "./FixtureRow.module.css"
 import { FIXTURES } from "../utils/constants"
 import { TEAM_INFO_LINK } from "../utils/routes"
 
-const FixtureRow = ({ fixture, teamId }) => {
+const FixtureRow = ({ fixture }) => {
   const {
     event_date: eventDate,
     status,
@@ -187,13 +187,11 @@ const FixtureRow = ({ fixture, teamId }) => {
 }
 
 FixtureRow.defaultProps = {
-  fixture: {},
-  teamId: null
+  fixture: {}
 }
 
 FixtureRow.propTypes = {
-  fixture: object,
-  teamId: number
+  fixture: object
 };
 
 export default FixtureRow
