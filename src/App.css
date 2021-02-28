@@ -102,3 +102,30 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
+
+.loadMore {
+  list-style-type: none;
+  padding: 17px 0px;
+  text-align: center;
+  align-items: center;
+}
+
+.loadMore button {
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  font-family: 'muli', sans-serif;
+  border: none;
+}
+
+.loadMore button {
+  cursor: pointer;
+}
+
+.loadMore button:hover {
+  opacity: 0.7;
+}
+
+.loadMore button:focus {
+  outline: none;
+}

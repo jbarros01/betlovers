@@ -39,6 +39,14 @@
   padding: 0px 10px 0px 10px;
 }
 
+.fixture a {
+  color: #444;
+  text-decoration: none;
+}
+
+.fixture a:hover{
+  opacity: 0.7;
+}
 
 .homeTeamName {
   flex: 2;

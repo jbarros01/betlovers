@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -16,7 +16,9 @@ import { fetchTeamLastFixtures } from "../store/actions/fixtures.actions";
 const LastFixtures = () => {
   const dispatch = useDispatch();
 
-  const { teamId, quantity } = useParams();
+  const [numberOfFixturesToShow, setNumberOfFixturesToShow] = useState(10);
+
+  const { teamId } = useParams();
 
   const teamIdNumber = Number(teamId);
 
@@ -30,15 +32,34 @@ const LastFixtures = () => {
 
   useEffect(() => {
     if (!hasLastFixtures) {
-      dispatch(fetchTeamLastFixtures(teamId, quantity))
+      dispatch(fetchTeamLastFixtures(teamId, numberOfFixturesToShow))
+    }
+
+    return () => {
+      setNumberOfFixturesToShow(10);
     }
   }, [teamId])
+
+  const handleLoadMore = () => {
+    const newNumberOfFixturesToShow = numberOfFixturesToShow + 10;
+
+    setNumberOfFixturesToShow(newNumberOfFixturesToShow);
+
+    dispatch(fetchTeamLastFixtures(teamId, numberOfFixturesToShow))
+  }
 
   return (
     <div className="container">
       <div className="inner">
         {hasLastFixtures ? (
-          <FixturesList fixtures={lastFixtures} teamId={teamIdNumber} />
+          <>
+            <FixturesList fixtures={lastFixtures} teamId={teamIdNumber} />
+            <div className="loadMore">
+              <button onClick={handleLoadMore}>
+                {"Load more..."}
+              </button>
+            </div>
+          </>
         ) : NO_INFO_AVAILABLE
         }
       </div>

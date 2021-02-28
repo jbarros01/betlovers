@@ -4,7 +4,7 @@ import {
   FETCH_TEAM_LAST_FIXTURES_FAILED,
   FETCH_TEAM_NEXT_FIXTURES,
   FETCH_TEAM_NEXT_FIXTURES_SUCCESS,
-  FETCH_TEAM_NEXT_FIXTURES_FAILED
+  FETCH_TEAM_NEXT_FIXTURES_FAILED,
 } from "./actionTypes";
 
 export const fetchTeamLastFixtures = (teamId, quantity) => ({

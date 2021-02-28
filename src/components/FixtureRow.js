@@ -1,8 +1,10 @@
 import React from "react"
 import { object, number } from 'prop-types'
+import { Link } from "react-router-dom"
 
 import styles from "./FixtureRow.module.css"
 import { FIXTURES } from "../utils/constants"
+import { TEAM_INFO_LINK } from "../utils/routes"
 
 const FixtureRow = ({ fixture, teamId }) => {
   const {
@@ -15,27 +17,19 @@ const FixtureRow = ({ fixture, teamId }) => {
       logo: leagueLogo
     },
     homeTeam: {
+      team_id: homeTeamId,
       logo: homeTeamLogo,
       team_name: homeTeamName
     },
     awayTeam: {
+      team_id: awayTeamId,
       logo: awayTeamLogo,
       team_name: awayTeamName
     }
   } = fixture;
 
   const getNotStartedMatch = () => (
-    <>
-      <div className={styles.homeTeamName}>{homeTeamName}</div>
-      <div className={styles.homeTeamLogo}>
-        <img src={homeTeamLogo} alt='homeTeamLogo' />
-      </div>
-      <div className={styles.fixtureResult}>{FIXTURES.SEPARATOR}</div>
-      <div className={styles.awayTeamLogo}>
-        <img src={awayTeamLogo} alt='awayTeamLogo' />
-      </div>
-      <div className={styles.awayTeamName}>{awayTeamName}</div>
-    </>
+    <div className={styles.fixtureResult}>{FIXTURES.SEPARATOR}</div>
   )
 
   const getMatchFinished = () => {
@@ -46,24 +40,10 @@ const FixtureRow = ({ fixture, teamId }) => {
       return (
         <>
           <div className={styles.homeTeamName}>
-            <b>{homeTeamName}</b>
+            <Link to={TEAM_INFO_LINK(homeTeamId)}>
+              <b>{homeTeamName}</b>
+            </Link>
           </div>
-          <div className={styles.homeTeamLogo}>
-            <img src={homeTeamLogo} alt='homeTeamLogo' />
-          </div>
-          <div className={styles.fixtureResult}>
-            <b>{goalsHomeTeam} {FIXTURES.SEPARATOR} {goalsAwayTeam}</b>
-          </div>
-          <div className={styles.awayTeamLogo}>
-            <img src={awayTeamLogo} alt='awayTeamLogo' />
-          </div>
-          <div className={styles.awayTeamName}>{awayTeamName}</div>
-        </>
-      )
-    } else if (wasAwayTeamWinner) {
-      return (
-        <>
-          <div className={styles.homeTeamName}>{homeTeamName}</div>
           <div className={styles.homeTeamLogo}>
             <img src={homeTeamLogo} alt='homeTeamLogo' />
           </div>
@@ -74,14 +54,20 @@ const FixtureRow = ({ fixture, teamId }) => {
             <img src={awayTeamLogo} alt='awayTeamLogo' />
           </div>
           <div className={styles.awayTeamName}>
-            <b>{awayTeamName}</b>
+            <Link to={TEAM_INFO_LINK(awayTeamId)}>
+              {awayTeamName}
+            </Link>
           </div>
         </>
       )
-    } else {
+    } else if (wasAwayTeamWinner) {
       return (
         <>
-          <div className={styles.homeTeamName}>{homeTeamName}</div>
+          <div className={styles.homeTeamName}>
+            <Link to={TEAM_INFO_LINK(homeTeamId)}>
+              {homeTeamName}
+            </Link>
+          </div>
           <div className={styles.homeTeamLogo}>
             <img src={homeTeamLogo} alt='homeTeamLogo' />
           </div>
@@ -91,57 +77,61 @@ const FixtureRow = ({ fixture, teamId }) => {
           <div className={styles.awayTeamLogo}>
             <img src={awayTeamLogo} alt='awayTeamLogo' />
           </div>
-          <div className={styles.awayTeamName}>{awayTeamName}</div>
+          <div className={styles.awayTeamName}>
+            <Link to={TEAM_INFO_LINK(awayTeamId)}>
+              <b>{awayTeamName}</b>
+            </Link>
+          </div>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className={styles.homeTeamName}>
+            <Link to={TEAM_INFO_LINK(homeTeamId)}>
+              {homeTeamName}
+            </Link>
+          </div>
+          <div className={styles.homeTeamLogo}>
+            <img src={homeTeamLogo} alt='homeTeamLogo' />
+          </div>
+          <div className={styles.fixtureResult}>
+            <b>{goalsHomeTeam} {FIXTURES.SEPARATOR} {goalsAwayTeam}</b>
+          </div>
+          <div className={styles.awayTeamLogo}>
+            <img src={awayTeamLogo} alt='awayTeamLogo' />
+          </div>
+          <div className={styles.awayTeamName}>
+            <Link to={TEAM_INFO_LINK(awayTeamId)}>
+              {awayTeamName}
+            </Link>
+          </div>
         </>
       )
     }
   }
 
   const getOnGoingMatch = () => (
-    <>
-      <div className={styles.homeTeamName}>{homeTeamName}</div>
-      <div className={styles.homeTeamLogo}>
-        <img src={homeTeamLogo} alt='homeTeamLogo' />
+    <div className={styles.ongoingResult}>
+      <div className={styles.timeElapsed}>
+        {elapsed}
+        <img src={`${process.env.PUBLIC_URL}/blinker.gif`} alt='timeElapsed' />
       </div>
-      <div className={styles.ongoingResult}>
-        <div className={styles.timeElapsed}>
-          {elapsed}
-          <img src={`${process.env.PUBLIC_URL}/blinker.gif`} alt='timeElapsed' />
-        </div>
-        <div className={styles.goals}>
-          <b>{goalsHomeTeam} {FIXTURES.SEPARATOR} {goalsAwayTeam}</b>
-        </div>
+      <div className={styles.goals}>
+        <b>{goalsHomeTeam} {FIXTURES.SEPARATOR} {goalsAwayTeam}</b>
       </div>
-      <div className={styles.awayTeamLogo}>
-        <img src={awayTeamLogo} alt='awayTeamLogo' />
-      </div>
-      <div className={styles.awayTeamName}>{awayTeamName}</div>
-    </>
+    </div>
   )
 
   const getMatchCancelled = () => (
-    <>
-      <div className={styles.homeTeamName}>{homeTeamName}</div>
-      <div className={styles.homeTeamLogo}>
-        <img src={homeTeamLogo} alt='homeTeamLogo' />
-      </div>
-      <div className={styles.cancelledLabel}>
-        {FIXTURES.CANCELLED_SEPARATOR}
-      </div>
-      <div className={styles.awayTeamLogo}>
-        <img src={awayTeamLogo} alt='awayTeamLogo' />
-      </div>
-      <div className={styles.awayTeamName}>{awayTeamName}</div>
-    </>
+    <div className={styles.cancelledLabel}>
+      {FIXTURES.CANCELLED_SEPARATOR}
+    </div>
   )
 
-  const renderFixture = () => {
+  const renderFixtureNotFinished = () => {
     if (status === FIXTURES.NOT_STARTED) {
       return getNotStartedMatch();
-    }
-
-    if (status === FIXTURES.MATCH_FINISHED) {
-      return getMatchFinished();
     }
 
     if (status === FIXTURES.MATCH_CANCELLED) {
@@ -149,6 +139,36 @@ const FixtureRow = ({ fixture, teamId }) => {
     }
 
     return getOnGoingMatch();
+  }
+
+  const renderFixture = () => {
+    if (status === FIXTURES.MATCH_FINISHED) {
+      return getMatchFinished();
+    }
+
+    return (
+      <>
+        <div className={styles.homeTeamName}>
+          <Link to={TEAM_INFO_LINK(homeTeamId)}>
+            {homeTeamName}
+          </Link>
+        </div>
+        <div className={styles.homeTeamLogo}>
+          <img src={homeTeamLogo} alt='homeTeamLogo' />
+        </div>
+
+        {renderFixtureNotFinished()}
+
+        <div className={styles.awayTeamLogo}>
+          <img src={awayTeamLogo} alt='awayTeamLogo' />
+        </div>
+        <div className={styles.awayTeamName}>
+          <Link to={TEAM_INFO_LINK(awayTeamId)}>
+            {awayTeamName}
+          </Link>
+        </div>
+      </>
+    )
   }
 
   const renderEventDate = () => eventDate.slice(0, 16).replace('T', ' ')
