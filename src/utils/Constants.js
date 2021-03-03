@@ -92,3 +92,37 @@ export const LINKS = [
     ],
   }
 ]
+
+export const RANK_COLORS = {
+  "Promotion - Champions League (Group Stage)": "#004682",
+  "Promotion - Champions League (Qualification)": "#1EA8EC",
+  "Promotion - Europa League (Group Stage)": "#7F0029",
+  "Promotion - Europa Conference League (Qualification)": "#b7860b",
+  "(Relegation)": "#bd0000",
+  "Relegation -": "#ff4141"
+}
+
+export const TABLE = {
+  RANK: "Rank",
+  CLUB: "Club",
+  MATCHES_PLAYED: {
+    FULL: "Matches Played",
+    ABBREVIATURE: "MP",
+  },
+  WIN: "Win",
+  DRAW: "Draw",
+  LOSS: "Loss",
+  GOALS_FOR: {
+    FULL: "Goals For",
+    ABBREVIATURE: "GF"
+  },
+  GOALS_AGAINST: {
+    FULL: "Goals Against",
+    ABBREVIATURE: "GA"
+  },
+  GOALS_DIFF: {
+    FULL: "Goals Difference",
+    ABBREVIATURE: "GD"
+  },
+  POINTS: "Points"
+}

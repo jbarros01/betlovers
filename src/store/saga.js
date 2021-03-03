@@ -9,6 +9,8 @@ export default function* rootSaga() {
     takeLatest(ACTION_TYPES.FETCH_TEAM, sagas.handleFetchTeam),
     takeLatest(ACTION_TYPES.FETCH_TEAM_LAST_FIXTURES, sagas.handleFetchTeamLastFixtures),
     takeLatest(ACTION_TYPES.FETCH_TEAM_NEXT_FIXTURES, sagas.handleFetchTeamNextFixtures),
-    takeLatest(ACTION_TYPES.FETCH_LIVE_FIXTURES, sagas.handleFetchLiveFixtures)
+    takeLatest(ACTION_TYPES.FETCH_LIVE_FIXTURES, sagas.handleFetchLiveFixtures),
+    takeLatest(ACTION_TYPES.FETCH_TEAM_LEAGUES, sagas.handleFetchTeamLeagues),
+    takeLatest(ACTION_TYPES.FETCH_LEAGUE_STANDINGS, sagas.handleFetchLeagueStandings)
   ]);
 }

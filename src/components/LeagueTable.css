@@ -1,0 +1,71 @@
+tr {
+  font-size: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  line-height: 1rem;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+  height: 50px;
+}
+
+th, td {
+  overflow: hidden;
+  padding: 0px 5px;
+  min-width: 60px;
+  max-width: 60px;
+}
+
+.club {
+  min-width: 200px;
+  max-width: 200px;
+}
+
+td.club {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
+.teamLogo img {
+  min-width: 20px;
+  flex: 1;
+  position: relative;
+  top: 1px;
+  max-width: 20px;
+}
+
+.teamLogo {
+  flex: 1;
+}
+
+.teamName {
+  flex: 3 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.teamName a {
+  color: #444;
+  text-decoration: none;
+}
+
+.teamName a:hover {
+  opacity: 0.7;
+}
+
+.tableHeader {
+  background: #8e65bf!important;
+  color: white;
+}
+
+td {
+  background: white;
+}
+
+tr:hover td {
+  background: aliceblue;
+}
