@@ -69,3 +69,7 @@ td {
 tr:hover td {
   background: aliceblue;
 }
+
+table {
+  margin-bottom: 25px;
+}

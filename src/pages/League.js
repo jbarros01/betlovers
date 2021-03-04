@@ -23,11 +23,10 @@ const League = () => {
   return (
     <div className="container">
       <div className="inner">
-        {leagueStandings ? (
-          <>
-            <LeagueTable standings={leagueStandings} />
-          </>
-        ) : NO_INFO_AVAILABLE
+        {leagueStandings ?
+          leagueStandings.map(leagueStanding =>
+            <LeagueTable standings={leagueStanding} />
+          ) : NO_INFO_AVAILABLE
         }
       </div>
     </div>

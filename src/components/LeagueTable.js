@@ -1,7 +1,7 @@
 import React from "react"
 import { array } from 'prop-types'
 
-import { TABLE, RANK_COLORS } from '../utils/constants'
+import { TABLE, RANK_COLORS, OTHER_RANK_COLORS } from '../utils/constants'
 
 import "./LeagueTable.css"
 import { Link } from "react-router-dom"
@@ -30,8 +30,14 @@ const LeagueTable = ({ standings }) => {
             let color = 'white';
 
             Object.entries(RANK_COLORS).forEach(([key, value]) => {
-              if (club.description?.includes(key)) {
+              if (club.description === key) {
                 color = value;
+              } else {
+                Object.entries(OTHER_RANK_COLORS).forEach(([key, value]) => {
+                  if (club.description?.includes(key)) {
+                    color = value;
+                  }
+                })
               }
             })
 
@@ -40,7 +46,7 @@ const LeagueTable = ({ standings }) => {
                 <td style={{ borderBottom: `3px solid ${color}`}}>{club.rank}</td>
                 <td class="club">
                   <div class="teamLogo">
-                    <img src={club.logo} alt="teamLogo" />
+                    <img src={club.logo} alt="" />
                   </div>
                   <div class="teamName">
                     <Link to={TEAM_INFO_LINK(club.team_id)}>

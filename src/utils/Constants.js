@@ -95,9 +95,25 @@ export const LINKS = [
 
 export const RANK_COLORS = {
   "Promotion - Champions League (Group Stage)": "#004682",
+  "Promotion": "#004682",
+  "Championship Round": "#004682",
+  "Semi-finals": "#004682",
+  "Quarter-finals": "#004682",
+  "Final Series": "#004682",
+  "Next Round": "#004682",
+  "Promotion - Campeonato Paulista (Play Offs)": "#004682",
   "Promotion - Champions League (Qualification)": "#1EA8EC",
+  "UEFA Europa League Play-off": "#1EA8EC",
+  "5th-8th Place Play-offs": "#1EA8EC",
+  "Promotion Play-off": "#1EA8EC",
   "Promotion - Europa League (Group Stage)": "#7F0029",
   "Promotion - Europa Conference League (Qualification)": "#b7860b",
+  "Relegation Play-off": "#bd0000",
+  "Relegation Round": "#ff4141",
+  "Relegation": "#ff4141"
+}
+
+export const OTHER_RANK_COLORS = {
   "(Relegation)": "#bd0000",
   "Relegation -": "#ff4141"
 }

@@ -17,7 +17,7 @@ export default client => {
     try {
       const { data: { api: { standings }} }  = await client.get(`${leagueTablePath}/${leagueId}`)
 
-      return standings[0];
+      return standings;
     } catch (e) {
       return e;
     }
