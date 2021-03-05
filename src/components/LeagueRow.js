@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom'
-import { string } from 'prop-types'
+import { string, number } from 'prop-types'
 
 import styles from "./LeagueRow.module.css"
 
@@ -17,12 +17,12 @@ const LeagueRow = ({ leagueId, name }) => {
 }
 
 LeagueRow.defaultProps = {
-  leagueId: '',
+  leagueId: null,
   name: '',
 }
 
 LeagueRow.propTypes = {
-  leagueId: string,
+  leagueId: number,
   name: string
 };
 

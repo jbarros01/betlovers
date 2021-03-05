@@ -102,6 +102,8 @@ export const RANK_COLORS = {
   "Final Series": "#004682",
   "Next Round": "#004682",
   "Promotion - Campeonato Paulista (Play Offs)": "#004682",
+  "Promotion - Copa de la Liga Profesional (Play Offs)": "#004682",
+  "Final Series Play-offs": "#1EA8EC",
   "Promotion - Champions League (Qualification)": "#1EA8EC",
   "UEFA Europa League Play-off": "#1EA8EC",
   "5th-8th Place Play-offs": "#1EA8EC",
