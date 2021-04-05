@@ -13,10 +13,7 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  teamFixtures: {
-    last: [],
-    next: []
-  },
+  teamFixtures: {},
   liveFixtures: [],
   error: null,
   isFetching: false
@@ -31,12 +28,21 @@ export default function (state = initialState, action) {
       };
     }
     case FETCH_TEAM_LAST_FIXTURES_SUCCESS: {
+      const teamId = action.payload.teamId;
+
+      const teamLastFixtures = state.teamFixtures[teamId]?.last || [];
+      const teamNextFixtures = state.teamFixtures[teamId]?.next || [];
+
       return {
         ...state,
         teamFixtures: {
           ...state.teamFixtures,
-          [action.payload.teamId]: {
-            last: [...state.teamFixtures.last, ...action.payload.lastTeamFixtures]
+          [teamId]: {
+            last: [
+              ...teamLastFixtures,
+              ...action.payload.lastTeamFixtures
+            ],
+            next: teamNextFixtures
           }
         },
         isFetching: false
@@ -56,12 +62,21 @@ export default function (state = initialState, action) {
       };
     }
     case FETCH_TEAM_NEXT_FIXTURES_SUCCESS: {
+      const teamId = action.payload.teamId;
+
+      const teamLastFixtures = state.teamFixtures[teamId]?.last || [];
+      const teamNextFixtures = state.teamFixtures[teamId]?.next || [];
+
       return {
         ...state,
         teamFixtures: {
           ...state.teamFixtures,
-          [action.payload.teamId]: {
-            next: [...state.teamFixtures.next, ...action.payload.nextTeamFixtures]
+          [teamId]: {
+            last: teamLastFixtures,
+            next: [
+              ...teamNextFixtures,
+              ...action.payload.nextTeamFixtures
+            ]
           }
         },
         isFetching: false

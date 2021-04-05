@@ -11,11 +11,15 @@ export const HOMEPAGE = {
 }
 
 export const FIXTURES = {
-  NOT_STARTED: "Not Started",
-  MATCH_FINISHED: "Match Finished",
-  MATCH_CANCELLED: "Match Cancelled",
+  STATUS: {
+    NOT_STARTED: "Not Started",
+    TBD: "Time To Be Defined",
+    MATCH_FINISHED: "Match Finished",
+    MATCH_CANCELLED: "Match Cancelled"
+  },
+  CANCELLED_SEPARATOR: "CANC",
   SEPARATOR: "-",
-  CANCELLED_SEPARATOR: "CANC"
+  TBD: "TBD"
 }
 
 export const TEAM_INFO = (teamId) => [
@@ -103,7 +107,10 @@ export const RANK_COLORS = {
   "Next Round": "#004682",
   "Promotion - Campeonato Paulista (Play Offs)": "#004682",
   "Promotion - Copa de la Liga Profesional (Play Offs)": "#004682",
+  "CONMEBOL Libertadores": "#004682",
+  "Final": "#004682",
   "Final Series Play-offs": "#1EA8EC",
+  "Play-off": "#1EA8EC",
   "Promotion - Champions League (Qualification)": "#1EA8EC",
   "UEFA Europa League Play-off": "#1EA8EC",
   "5th-8th Place Play-offs": "#1EA8EC",

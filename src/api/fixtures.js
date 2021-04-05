@@ -4,11 +4,7 @@ export default client => {
 
   const getTeamLastFixtures = async (teamId, quantity = 10) => {
     try {
-      const {
-        data: {
-          api: { fixtures }
-        }
-      } = await client.get(`${path}/team/${teamId}/last/${quantity}`)
+      const { data: { response: fixtures }} = await client.get(`${path}/team/${teamId}/last/${quantity}`)
 
       return fixtures;
     } catch (e) {
@@ -18,11 +14,7 @@ export default client => {
 
   const getTeamNextFixtures = async (teamId, quantity = 10) => {
     try {
-      const {
-        data: {
-          api: { fixtures }
-        }
-      } = await client.get(`${path}/team/${teamId}/next/${quantity}`)
+      const { data: { response: fixtures }} = await client.get(`${path}/team/${teamId}/next/${quantity}`)
 
       return fixtures;
     } catch (e) {
@@ -32,11 +24,7 @@ export default client => {
 
   const getLiveFixtures = async () => {
     try {
-      const {
-        data: {
-          api: { fixtures }
-        }
-      } = await client.get(`${path}/live`)
+      const { data: { response: fixtures }} = await client.get(`${path}?live=all`)
 
       return fixtures;
     } catch (e) {

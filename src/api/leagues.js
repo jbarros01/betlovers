@@ -5,7 +5,7 @@ export default client => {
 
   const getTeamLeagues = async teamId => {
     try {
-      const { data: { api: { leagues }} }  = await client.get(`${leaguesPath}/team/${teamId}`)
+      const { data: { response: leagues } }  = await client.get(`${leaguesPath}/team/${teamId}`)
 
       return leagues;
     } catch (e) {
@@ -15,7 +15,7 @@ export default client => {
 
   const getLeagueStandings = async leagueId => {
     try {
-      const { data: { api: { standings }} }  = await client.get(`${leagueTablePath}/${leagueId}`)
+      const { data: { response: standings } }  = await client.get(`${leagueTablePath}/${leagueId}`)
 
       return standings;
     } catch (e) {
@@ -23,5 +23,16 @@ export default client => {
     }
   };
 
-  return { getTeamLeagues, getLeagueStandings };
+  const getCurrentTeamLeague = async teamId => {
+    try {
+      const { data: { response: leagues } } =
+        await client.get(`${leaguesPath}?team=${teamId}&current=true&type=league`)
+
+      return leagues[0];
+    } catch (e) {
+      return e;
+    }
+  };
+
+  return { getTeamLeagues, getLeagueStandings, getCurrentTeamLeague };
 };

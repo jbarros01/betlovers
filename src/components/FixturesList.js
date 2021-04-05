@@ -6,10 +6,10 @@ import FixtureRow from "./FixtureRow";
 const FixturesList = ({ fixtures, teamId }) => {
   return (
     <ul>
-      {fixtures.map(fixture => (
+      {fixtures.map(info => (
         <FixtureRow
-          key={fixture.fixture_id}
-          fixture={fixture}
+          key={info.fixture.id}
+          info={info}
           teamId={teamId}
         />
       ))}

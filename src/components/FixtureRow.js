@@ -6,27 +6,35 @@ import styles from "./FixtureRow.module.css"
 import { FIXTURES } from "../utils/constants"
 import { TEAM_INFO_LINK } from "../utils/routes"
 
-const FixtureRow = ({ fixture }) => {
+const FixtureRow = ({ info }) => {
   const {
-    event_date: eventDate,
-    status,
-    elapsed,
-    goalsHomeTeam,
-    goalsAwayTeam,
+    fixture: {
+      date: eventDate,
+      status: {
+        short: status,
+        elapsed
+      }
+    },
+    teams: {
+      home: {
+        id: homeTeamId,
+        logo: homeTeamLogo,
+        name: homeTeamName
+      },
+      away: {
+        id: awayTeamId,
+        logo: awayTeamLogo,
+        name: awayTeamName
+      }
+    },
+    goals: {
+      home: goalsHomeTeam,
+      away: goalsAwayTeam
+    },
     league: {
       logo: leagueLogo
-    },
-    homeTeam: {
-      team_id: homeTeamId,
-      logo: homeTeamLogo,
-      team_name: homeTeamName
-    },
-    awayTeam: {
-      team_id: awayTeamId,
-      logo: awayTeamLogo,
-      team_name: awayTeamName
     }
-  } = fixture;
+  } = info;
 
   const getNotStartedMatch = () => (
     <div className={styles.fixtureResult}>{FIXTURES.SEPARATOR}</div>
@@ -130,11 +138,11 @@ const FixtureRow = ({ fixture }) => {
   )
 
   const renderFixtureNotFinished = () => {
-    if (status === FIXTURES.NOT_STARTED) {
+    if (status === FIXTURES.STATUS.NOT_STARTED || status === FIXTURES.STATUS.TBD) {
       return getNotStartedMatch();
     }
 
-    if (status === FIXTURES.MATCH_CANCELLED) {
+    if (status === FIXTURES.STATUS.MATCH_CANCELLED) {
       return getMatchCancelled();
     }
 
@@ -142,7 +150,7 @@ const FixtureRow = ({ fixture }) => {
   }
 
   const renderFixture = () => {
-    if (status === FIXTURES.MATCH_FINISHED) {
+    if (status === FIXTURES.STATUS.MATCH_FINISHED) {
       return getMatchFinished();
     }
 
@@ -176,7 +184,7 @@ const FixtureRow = ({ fixture }) => {
   return (
     <li className={styles.fixture}>
       <div className={styles.eventDate}>
-        {renderEventDate()}
+        {status === FIXTURES.STATUS.TBD ? FIXTURES.TBD : renderEventDate() }
       </div>
       {renderFixture()}
       <div className={styles.leagueLogo}>

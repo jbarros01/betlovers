@@ -1,7 +1,7 @@
 import axios from 'axios';
 import rateLimit from 'axios-rate-limit';
 
-const MAX_REQUEST_PER_SECOND_LIMIT_VALUE = 24;
+const MAX_REQUEST_PER_SECOND_LIMIT_VALUE = 1;
 
 export class HttpClient {
   constructor({ baseURL = process.env.REACT_APP_API_FOOTBALL_URL, timeout = 20000 } = {}) {
@@ -11,7 +11,7 @@ export class HttpClient {
       });
 
       HttpClient.instance.interceptors.request.use(
-        config => ({ ...config, headers: { 'x-rapidapi-key': process.env.REACT_APP_API_KEY } })
+        config => ({ ...config, headers: { 'x-apisports-key': process.env.REACT_APP_API_KEY } })
       );
 
       Object.freeze(HttpClient.instance);

@@ -62,12 +62,8 @@ td.club {
   color: white;
 }
 
-td {
-  background: white;
-}
-
 tr:hover td {
-  background: aliceblue;
+  background: lavender!important;
 }
 
 table {

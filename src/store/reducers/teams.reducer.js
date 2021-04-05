@@ -4,9 +4,6 @@ import {
   SEARCH_TEAM,
   SEARCH_TEAM_SUCCESS,
   SEARCH_TEAM_FAILED,
-  FETCH_TEAM,
-  FETCH_TEAM_SUCCESS,
-  FETCH_TEAM_FAILED,
   CLEAR_FILTERED_TEAMS
 } from "../actions/actionTypes";
 
@@ -39,26 +36,6 @@ export default function(state = initialState, action) {
         ...state,
         error: action.payload.error,
         isSearching: false
-      };
-    }
-    case FETCH_TEAM: {
-      return {
-        ...state,
-        isFetching: true
-      };
-    }
-    case FETCH_TEAM_SUCCESS: {
-      return {
-        ...state,
-        filteredTeams: [ ...state.filteredTeams, action.payload.team ],
-        isFetching: false
-      };
-    }
-    case FETCH_TEAM_FAILED: {
-      return {
-        ...state,
-        error: action.payload.error,
-        isFetching: false
       };
     }
     case CLEAR_FILTERED_TEAMS: {

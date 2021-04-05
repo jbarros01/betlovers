@@ -4,7 +4,7 @@ export default client => {
 
   const searchTeam = async name => {
     try {
-      const { data: { api: { teams }} }  = await client.get(`${path}/search/${name}`)
+      const { data: { response: teams } }  = await client.get(`${path}?search=${name}`)
 
       return teams;
     } catch (e) {
@@ -14,7 +14,7 @@ export default client => {
 
   const getTeam = async teamId => {
     try {
-      const { data: { api: { teams }} }  = await client.get(`${path}/team/${teamId}`)
+      const { data: { response: teams } }  = await client.get(`${path}/team/${teamId}`)
 
       return teams[0];
     } catch (e) {

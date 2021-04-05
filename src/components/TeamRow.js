@@ -7,7 +7,7 @@ import { TEAM_INFO_LINK } from "../utils/routes"
 
 const TeamRow = ({ team }) => {
   return (
-    <Link to={TEAM_INFO_LINK(team.team_id)} className={styles.item}>
+    <Link to={TEAM_INFO_LINK(team.id)} className={styles.item}>
       <li>
         <div className={styles.teamLogo}>
           <img src={team.logo} alt="teamLogo"/>

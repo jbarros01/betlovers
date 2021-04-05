@@ -30,9 +30,9 @@ const FilteredTeamsList = ({ teams }) => {
         </button>
       </li>
       {
-        teams.map(team => (
+        teams.map(({ team }) => (
           <TeamRow
-            key={team.team_id}
+            key={team.id}
             team={team}
           />
         ))
