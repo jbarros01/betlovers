@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/betlovers/static/css/main.829144a7.chunk.css",
-    "main.js": "/betlovers/static/js/main.a58cfe40.chunk.js",
-    "main.js.map": "/betlovers/static/js/main.a58cfe40.chunk.js.map",
+    "main.css": "/betlovers/static/css/main.04592750.chunk.css",
+    "main.js": "/betlovers/static/js/main.a0e11d97.chunk.js",
+    "main.js.map": "/betlovers/static/js/main.a0e11d97.chunk.js.map",
     "runtime-main.js": "/betlovers/static/js/runtime-main.67ac2ee1.js",
     "runtime-main.js.map": "/betlovers/static/js/runtime-main.67ac2ee1.js.map",
-    "static/js/2.eb33af0d.chunk.js": "/betlovers/static/js/2.eb33af0d.chunk.js",
-    "static/js/2.eb33af0d.chunk.js.map": "/betlovers/static/js/2.eb33af0d.chunk.js.map",
+    "static/js/2.bacb2ac9.chunk.js": "/betlovers/static/js/2.bacb2ac9.chunk.js",
+    "static/js/2.bacb2ac9.chunk.js.map": "/betlovers/static/js/2.bacb2ac9.chunk.js.map",
     "index.html": "/betlovers/index.html",
-    "static/css/main.829144a7.chunk.css.map": "/betlovers/static/css/main.829144a7.chunk.css.map",
-    "static/js/2.eb33af0d.chunk.js.LICENSE.txt": "/betlovers/static/js/2.eb33af0d.chunk.js.LICENSE.txt"
+    "static/css/main.04592750.chunk.css.map": "/betlovers/static/css/main.04592750.chunk.css.map",
+    "static/js/2.bacb2ac9.chunk.js.LICENSE.txt": "/betlovers/static/js/2.bacb2ac9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.67ac2ee1.js",
-    "static/js/2.eb33af0d.chunk.js",
-    "static/css/main.829144a7.chunk.css",
-    "static/js/main.a58cfe40.chunk.js"
+    "static/js/2.bacb2ac9.chunk.js",
+    "static/css/main.04592750.chunk.css",
+    "static/js/main.a0e11d97.chunk.js"
   ]
 }
