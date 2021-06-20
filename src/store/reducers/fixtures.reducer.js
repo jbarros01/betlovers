@@ -30,7 +30,6 @@ export default function (state = initialState, action) {
     case FETCH_TEAM_LAST_FIXTURES_SUCCESS: {
       const teamId = action.payload.teamId;
 
-      const teamLastFixtures = state.teamFixtures[teamId]?.last || [];
       const teamNextFixtures = state.teamFixtures[teamId]?.next || [];
 
       return {
@@ -38,10 +37,7 @@ export default function (state = initialState, action) {
         teamFixtures: {
           ...state.teamFixtures,
           [teamId]: {
-            last: [
-              ...teamLastFixtures,
-              ...action.payload.lastTeamFixtures
-            ],
+            last: action.payload.lastTeamFixtures,
             next: teamNextFixtures
           }
         },
@@ -65,7 +61,6 @@ export default function (state = initialState, action) {
       const teamId = action.payload.teamId;
 
       const teamLastFixtures = state.teamFixtures[teamId]?.last || [];
-      const teamNextFixtures = state.teamFixtures[teamId]?.next || [];
 
       return {
         ...state,
@@ -73,10 +68,7 @@ export default function (state = initialState, action) {
           ...state.teamFixtures,
           [teamId]: {
             last: teamLastFixtures,
-            next: [
-              ...teamNextFixtures,
-              ...action.payload.nextTeamFixtures
-            ]
+            next: action.payload.nextTeamFixtures
           }
         },
         isFetching: false
@@ -119,5 +111,8 @@ export const getTeamFixtures = state => getFixtures(state).teamFixtures;
 export const getLiveFixtures = state => getFixtures(state).liveFixtures;
 export const getTeamLastFixtures = (state, teamId) => getTeamFixtures(state)[teamId]?.last;
 export const getTeamNextFixtures = (state, teamId) => getTeamFixtures(state)[teamId]?.next;
+export const getTeamLastFiveFixtures = (state, teamId) => getTeamLastFixtures(state, teamId).slice(0, 5);
+export const getTeamNextFiveFixtures = (state, teamId) => getTeamNextFixtures(state, teamId).slice(0, 5);
 export const hasTeamLastFixtures = (state, teamId) => getTeamLastFixtures(state, teamId)?.length;
 export const hasTeamNextFixtures = (state, teamId) => getTeamNextFixtures(state, teamId)?.length;
+export const isFetchingFixtures = state => getFixtures(state).isFetching;

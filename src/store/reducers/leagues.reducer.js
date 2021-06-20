@@ -44,3 +44,4 @@ export default function(state = initialState, action) {
 
 export const getLeagues = state => state.entities.leagues;
 export const getTeamLeagueStandings = (state, teamId) => getLeagues(state).teamLeagueStandings[teamId];
+export const isFetchingLeagueStandings = state => getLeagues(state).isFetching;

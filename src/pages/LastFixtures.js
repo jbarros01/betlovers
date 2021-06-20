@@ -29,7 +29,7 @@ const LastFixtures = () => {
   );
 
   useEffect(() => {
-    if (!hasLastFixtures) {
+    if (!hasLastFixtures || lastFixtures.length < 10) {
       dispatch(fetchTeamLastFixtures(teamId, numberOfFixturesToShow))
     }
 

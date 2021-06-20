@@ -29,7 +29,7 @@ const NextFixtures = () => {
   );
 
   useEffect(() => {
-    if (!hasNextFixtures) {
+    if (!hasNextFixtures || nextFixtures.length < 10) {
       dispatch(fetchTeamNextFixtures(teamId, numberOfFixturesToShow))
     }
 

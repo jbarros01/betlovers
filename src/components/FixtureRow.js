@@ -11,7 +11,7 @@ const FixtureRow = ({ info }) => {
     fixture: {
       date: eventDate,
       status: {
-        short: status,
+        long: status,
         elapsed
       }
     },
@@ -150,7 +150,7 @@ const FixtureRow = ({ info }) => {
   }
 
   const renderFixture = () => {
-    if (status === FIXTURES.STATUS.MATCH_FINISHED) {
+    if ([FIXTURES.STATUS.MATCH_FINISHED, FIXTURES.STATUS.TECHNICAL_LOSS].includes(status)) {
       return getMatchFinished();
     }
 

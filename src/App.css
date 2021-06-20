@@ -145,3 +145,37 @@ input:-webkit-autofill:active {
   width: 25px;
   margin-left: 5px;
 }
+
+.section {
+  background: white;
+  margin-bottom: 25px;
+}
+
+.section.games-preview {
+  background: transparent;
+  list-style-type: none;
+  text-align: center;
+  align-items: center;
+}
+
+.games-preview a {
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  font-family: 'muli', sans-serif;
+  border: none;
+  color: #444;
+  text-decoration: none;
+}
+
+.games-preview a:hover {
+  opacity: 0.7;
+}
+
+.games-preview a:hover {
+  opacity: 0.7;
+}
+
+.games-preview div {
+  margin-top: 20px;
+}

@@ -15,30 +15,19 @@ export const FIXTURES = {
     NOT_STARTED: "Not Started",
     TBD: "Time To Be Defined",
     MATCH_FINISHED: "Match Finished",
-    MATCH_CANCELLED: "Match Cancelled"
+    MATCH_CANCELLED: "Match Cancelled",
+    TECHNICAL_LOSS: "Technical loss"
   },
   CANCELLED_SEPARATOR: "CANC",
   SEPARATOR: "-",
   TBD: "TBD"
 }
 
-export const TEAM_INFO = (teamId) => [
-  {
-    ID: "1",
-    LABEL: "Standings",
-    ROUTE: Routes.TEAM_STANDINGS_LINK(teamId)
-  },
-  {
-    ID: "2",
-    LABEL: "Last games",
-    ROUTE: Routes.TEAM_LAST_FIXTURES_LINK(teamId)
-  },
-  {
-    ID: "3",
-    LABEL: "Next games",
-    ROUTE: Routes.TEAM_NEXT_FIXTURES_LINK(teamId)
-  }
-]
+export const TEAM_INFO = {
+  LAST_GAMES: "See last games",
+  NEXT_GAMES: "See next games",
+  CHECK_MORE: "Check more",
+}
 
 export const NO_INFO_AVAILABLE = "No info available"
 
